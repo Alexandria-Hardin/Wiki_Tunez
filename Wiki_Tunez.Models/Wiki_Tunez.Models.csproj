@@ -55,6 +55,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArtistCreate.cs" />
+    <Compile Include="PlaylistCreate.cs" />
+    <Compile Include="PlaylistDetail.cs" />
+    <Compile Include="PlaylistEdit.cs" />
+    <Compile Include="PlaylistListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
