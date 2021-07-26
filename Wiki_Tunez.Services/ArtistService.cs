@@ -27,13 +27,12 @@ namespace Wiki_Tunez.Services
             }
         }
 
-        public IEnumerable<ArtistListItem> GetArtists(int Id)
+        public IEnumerable<ArtistListItem> GetArtists()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx.Artists
-                    .Where(e => e.Id == Id)
                     .Select(
                         e =>
                         new ArtistListItem
@@ -46,14 +45,14 @@ namespace Wiki_Tunez.Services
             }
         }
 
-        public ArtistDetail GetArtistById(int Id)
+        public ArtistDetail GetArtistById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                     .Artists
-                    .Single(e => e.Id == Id);
+                    .Single(e => e.Id == id);
                 return
                     new ArtistDetail
                     {
@@ -82,14 +81,14 @@ namespace Wiki_Tunez.Services
             }
         }
 
-        public bool DeleteNote(int Id)
+        public bool DeleteArtist(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                     .Artists
-                    .Single(e => e.Id == Id);
+                    .Single(e => e.Id == id);
 
                 ctx.Artists.Remove(entity);
 
