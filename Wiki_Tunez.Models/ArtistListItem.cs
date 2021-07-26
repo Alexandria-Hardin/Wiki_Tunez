@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Wiki_Tunez.Models
 {
-    public class PlaylistCreate
+    public class ArtistListItem
     {
+        public int Id { get; set; }
         public string Name { get; set; }
-        public int SongId { get; set; }
     }
 }

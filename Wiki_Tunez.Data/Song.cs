@@ -10,7 +10,7 @@ namespace Wiki_Tunez.Data
 {
     public enum GenreType 
     {
-        Pop, Country, Rap, Rock, Classical, RnB, Indie, Jazz, Metal, Alternative, Punk, HipHop, Blues, Folk, Electronic, Reggae
+        Pop = 1, Country, Rap, Rock, Classical, RnB, Indie, Jazz, Metal, Alternative, Punk, HipHop, Blues, Folk, Electronic, Reggae
     }
     public class Song
     {
@@ -26,6 +26,14 @@ namespace Wiki_Tunez.Data
         public int Id { get; set; }
         public virtual Artist Artist { get; set; }
 
+        //public virtual ICollection<Artist> ListOfArtists { get; set; }
+
+        //public Song()
+        //{
+        //    ListOfArtists = new HashSet<Artist>();
+        //}
+
         public GenreType TypeOfGenre { get; set; }
+
     }
 }
