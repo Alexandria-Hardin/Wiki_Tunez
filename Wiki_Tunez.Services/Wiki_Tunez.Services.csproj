@@ -54,11 +54,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArtistService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Wiki_Tunez.Data\Wiki_Tunez.Data.csproj">
+      <Project>{4753F104-6D4D-4D20-97F1-6D36716C6106}</Project>
+      <Name>Wiki_Tunez.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wiki_Tunez.Models\Wiki_Tunez.Models.csproj">
+      <Project>{93CE884E-5246-427A-82B3-668E65FE1CF0}</Project>
+      <Name>Wiki_Tunez.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
