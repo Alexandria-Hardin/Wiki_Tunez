@@ -16,8 +16,16 @@ namespace Wiki_Tunez.Data
         public string Name { get; set; }
         [Required]
         public Guid UserId { get; set; }
+
         [ForeignKey(nameof(Song))]
         public int SongId { get; set; }
         public virtual Song Song { get; set; }
+
+        public virtual ICollection<Song> ListOfSongs { get; set; }
+
+        public Playlist()
+        {
+            ListOfSongs = new HashSet<Song>();
+        }
     }
 }
