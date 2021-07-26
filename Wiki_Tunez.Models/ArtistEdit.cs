@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Wiki_Tunez.Models
 {
-    class ArtistEdit
+    public class ArtistEdit
     {
         public enum ArtistType
         {
