@@ -12,6 +12,7 @@ namespace Wiki_Tunez.Data
     {
         Pop = 1, Country, Rap, Rock, Classical, RnB, Indie, Jazz, Metal, Alternative, Punk, HipHop, Blues, Folk, Electronic, Reggae
     }
+
     public class Song
     {
         [Key]
