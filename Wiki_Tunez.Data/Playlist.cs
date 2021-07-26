@@ -19,5 +19,12 @@ namespace Wiki_Tunez.Data
         [ForeignKey(nameof(Song))]
         public int SongId { get; set; }
         public virtual Song Song { get; set; }
+
+        public virtual ICollection<Song> ListOfSongs { get; set; }
+
+        public Playlist()
+        {
+            ListOfFlavors = new HashSet<Song>();
+        }
     }
 }
