@@ -9,7 +9,6 @@ namespace Wiki_Tunez.Models
 {
     public class SongCreate
     {
-        public int SongId { get; set; }
 
         public string Title { get; set; }
 
