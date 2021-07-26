@@ -59,10 +59,20 @@
     <Compile Include="ArtistEdit.cs" />
     <Compile Include="ArtistListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SongCreate.cs" />
+    <Compile Include="SongDetail.cs" />
+    <Compile Include="SongEdit.cs" />
+    <Compile Include="SongListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Wiki_Tunez.Data\Wiki_Tunez.Data.csproj">
+      <Project>{4753F104-6D4D-4D20-97F1-6D36716C6106}</Project>
+      <Name>Wiki_Tunez.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
