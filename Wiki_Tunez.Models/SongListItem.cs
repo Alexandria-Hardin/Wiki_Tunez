@@ -9,7 +9,7 @@ namespace Wiki_Tunez.Models
 {
     public class SongListItem
     {
-        public int NoteId { get; set; }
+        public int SongId { get; set; }
         public string Title { get; set; }
         public double RunTime { get; set; }
         public int ArtistId { get; set; }

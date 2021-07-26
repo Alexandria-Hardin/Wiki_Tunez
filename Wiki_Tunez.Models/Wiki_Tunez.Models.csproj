@@ -72,5 +72,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Wiki_Tunez.Data\Wiki_Tunez.Data.csproj">
+      <Project>{4753F104-6D4D-4D20-97F1-6D36716C6106}</Project>
+      <Name>Wiki_Tunez.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
