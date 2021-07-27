@@ -26,10 +26,10 @@ namespace Wiki_Tunez.WebAPI.Controllers
             var playlist = playlistService.GetPlaylistById(id);
             return Ok(playlist);
         }
-        public IHttpActionResult Get(Guid Id)
+        public IHttpActionResult Get(Guid UserId)
         {
             PlaylistService playlistService = CreatePlaylistService();
-            var playlist = playlistService.GetPlaylistByGuid(Id);
+            var playlist = playlistService.GetPlaylistByGuid(UserId);
             return Ok(playlist);
         }
 
@@ -45,8 +45,8 @@ namespace Wiki_Tunez.WebAPI.Controllers
         private PlaylistService CreatePlaylistService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var noteService = new PlaylistService(userId);
-            return noteService;
+            var playlistService = new PlaylistService(userId);
+            return playlistService;
         }
 
         public IHttpActionResult Put(PlaylistEdit playlist)
