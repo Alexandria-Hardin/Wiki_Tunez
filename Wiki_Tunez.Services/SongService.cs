@@ -88,7 +88,7 @@ namespace Wiki_Tunez.Services
             }
         }
 
-        public bool DeleteNote(int songId)
+        public bool DeleteSong(int songId)
         {
             using (var ctx = new ApplicationDbContext())
             {

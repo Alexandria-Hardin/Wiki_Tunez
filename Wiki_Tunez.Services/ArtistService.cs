@@ -17,7 +17,7 @@ namespace Wiki_Tunez.Services
                 new Artist()
                 {
                     Name = model.Name,
-                    TypeOfArtist = (Artist.ArtistType)model.TypeOfArtist
+                    TypeOfArtist = model.TypeOfArtist
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -58,7 +58,7 @@ namespace Wiki_Tunez.Services
                     {
                         Id = entity.Id,
                         Name = entity.Name,
-                        TypeOfArtist = (ArtistDetail.ArtistType)entity.TypeOfArtist
+                        TypeOfArtist = entity.TypeOfArtist
                     };
             }
 
@@ -75,7 +75,7 @@ namespace Wiki_Tunez.Services
 
                 entity.Id = model.Id;
                 entity.Name = model.Name;
-                entity.TypeOfArtist = (Artist.ArtistType)model.TypeOfArtist;
+                entity.TypeOfArtist = model.TypeOfArtist;
 
                 return ctx.SaveChanges() == 1;
             }
