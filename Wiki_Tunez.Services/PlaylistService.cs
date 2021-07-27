@@ -75,7 +75,7 @@ namespace Wiki_Tunez.Services
             }
         }
 
-        public PlaylistDetail GetPlaylistById(Guid UserId)
+        public PlaylistDetail GetPlaylistByGuid(Guid UserId)
         {
             using (var ctx = new ApplicationDbContext())
             {
