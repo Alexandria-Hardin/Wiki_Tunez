@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Wiki_Tunez.Data
 {
-    public class Artist
-    {
         public enum ArtistType
         {
             Solo,
             Group,
             Band
         }
+    public class Artist
+    {
         [Key]
         public int Id { get; set; }
         [Required]

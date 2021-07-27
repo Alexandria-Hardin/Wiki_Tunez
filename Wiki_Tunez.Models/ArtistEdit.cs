@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static Wiki_Tunez.Models.ArtistCreate;
+using Wiki_Tunez.Data;
 
 namespace Wiki_Tunez.Models
 {
