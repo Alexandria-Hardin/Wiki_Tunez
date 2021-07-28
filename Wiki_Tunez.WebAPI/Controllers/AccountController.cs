@@ -13,7 +13,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
-using Wiki_Tunez.WebAPI.Data;
+using Wiki_Tunez.Data;
 using Wiki_Tunez.WebAPI.Models;
 using Wiki_Tunez.WebAPI.Providers;
 using Wiki_Tunez.WebAPI.Results;
