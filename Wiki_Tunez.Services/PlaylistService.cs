@@ -23,9 +23,9 @@ namespace Wiki_Tunez.Services
                 {
                     UserId = _userId,
                     Name = model.Name,
-                    SongId = model.SongId,
-                    ListOfSongs = model.ListOfSongs
-                    };
+                        //SongId = model.SongId,
+                        ListOfSongs = model.ListOfSongs
+                };
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Playlists.Add(entity);
@@ -67,8 +67,8 @@ namespace Wiki_Tunez.Services
                     {
                         Id = entity.Id,
                         Name = entity.Name,
-                        SongId = entity.SongId,
-                        UserId = entity.UserId,
+                            //SongId = entity.SongId,
+                            UserId = entity.UserId,
                         ListOfSongs = entity.ListOfSongs
                     };
             }
@@ -87,8 +87,8 @@ namespace Wiki_Tunez.Services
                     {
                         Id = entity.Id,
                         Name = entity.Name,
-                        SongId = entity.SongId,
-                        UserId = entity.UserId,
+                            //SongId = entity.SongId,
+                            UserId = entity.UserId,
                         ListOfSongs = entity.ListOfSongs
                     };
             }
@@ -103,7 +103,7 @@ namespace Wiki_Tunez.Services
                     .Playlists
                     .Single(e => e.Id == model.Id && e.UserId == _userId);
                 entity.Name = model.Name;
-                entity.SongId = model.SongId;
+                //entity.SongId = model.SongId;
                 entity.ListOfSongs = model.ListOfSongs;
 
                 return ctx.SaveChanges() == 1;
