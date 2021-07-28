@@ -87,6 +87,10 @@
     <Compile Include="Album.cs" />
     <Compile Include="Artist.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\202107281839126_Initial Migration.cs" />
+    <Compile Include="Migrations\202107281839126_Initial Migration.Designer.cs">
+      <DependentUpon>202107281839126_Initial Migration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Playlist.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -95,6 +99,11 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202107281839126_Initial Migration.resx">
+      <DependentUpon>202107281839126_Initial Migration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
