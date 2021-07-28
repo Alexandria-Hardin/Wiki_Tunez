@@ -45,6 +45,12 @@ namespace Wiki_Tunez.Data
 
     public class Song
     {
+        public Song()
+        {
+            this.Playlists = new HashSet<Playlist>();
+            this.Albums = new HashSet<Album>();
+        }
+
         [Key]
         public int SongId { get; set; }
 
@@ -66,5 +72,7 @@ namespace Wiki_Tunez.Data
 
         public GenreType TypeOfGenre { get; set; }
 
+        public virtual ICollection<Playlist> Playlists { get; set; }
+        public virtual ICollection<Album> Albums { get; set; }
     }
 }
