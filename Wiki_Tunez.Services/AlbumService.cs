@@ -8,89 +8,95 @@ using Wiki_Tunez.Models;
 
 namespace Wiki_Tunez.Services
 {
-    public class ArtistService
+    public class AlbumService
     {
-        public bool CreateArtist(ArtistCreate model)
+        public bool CreateAlbum(AlbumCreate model)
         {
             var entity =
-                new Artist()
+                new Album()
                 {
-                    Name = model.Name,
-                    TypeOfArtist = model.TypeOfArtist
+                    Title = model.Title,
+                    AmountOfSongs = model.AmountOfSongs,
+                    ArtistId = model.ArtistId,
+                    TypeOfGenre = model.TypeOfGenre,
+                    AlbumOfSongs = model.AlbumOfSongs
                 };
-
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Artists.Add(entity);
+                ctx.Albums.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        public IEnumerable<ArtistListItem> GetArtists()
+        public IEnumerable<AlbumListItem> GetAlbums()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
-                    ctx.Artists
+                    ctx
+                    .Albums
                     .Select(
                         e =>
-                        new ArtistListItem
+                        new AlbumListItem
                         {
                             Id = e.Id,
-                            Name = e.Name,
+                            Title = e.Title,
+                            AlbumOfSongs = e.AlbumOfSongs
                         }
                         );
                 return query.ToArray();
             }
         }
 
-        public ArtistDetail GetArtistById(int id)
+        public AlbumDetail GetAlbumById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                    .Artists
+                    .Albums
                     .Single(e => e.Id == id);
                 return
-                    new ArtistDetail
+                    new AlbumDetail
                     {
                         Id = entity.Id,
-                        Name = entity.Name,
-                        TypeOfArtist = entity.TypeOfArtist
+                        Title = entity.Title,
+                        AmountOfSongs = entity.AmountOfSongs,
+                        ArtistId = entity.ArtistId,
+                        TypeOfGenre = entity.TypeOfGenre,
+                        AlbumOfSongs = entity.AlbumOfSongs
                     };
             }
-
         }
 
-        public bool UpdateArtist(ArtistEdit model)
+        public bool UpdateAlbum(AlbumEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                    .Artists
+                    .Albums
                     .Single(e => e.Id == model.Id);
 
                 entity.Id = model.Id;
-                entity.Name = model.Name;
-                entity.TypeOfArtist = model.TypeOfArtist;
+                entity.Title = model.Title;
+                entity.AmountOfSongs = model.AmountOfSongs;
+                entity.ArtistId = model.ArtistId;
+                entity.TypeOfGenre = model.TypeOfGenre;
+                entity.AlbumOfSongs = model.AlbumOfSongs;
 
                 return ctx.SaveChanges() == 1;
             }
         }
-
-        public bool DeleteArtist(int id)
+        public bool DeleteAlbum(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                    .Artists
+                    .Albums
                     .Single(e => e.Id == id);
-
-                ctx.Artists.Remove(entity);
-
+                ctx.Albums.Remove(entity);
                 return ctx.SaveChanges() == 1;
             }
         }

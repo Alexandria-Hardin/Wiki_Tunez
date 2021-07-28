@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Wiki_Tunez.Data;
 using Wiki_Tunez.Models;
-using Wiki_Tunez.WebAPI.Data;
 
 namespace Wiki_Tunez.Services
 {

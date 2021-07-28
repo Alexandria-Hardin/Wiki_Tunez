@@ -7,7 +7,7 @@ using Wiki_Tunez.Data;
 
 namespace Wiki_Tunez.Models
 {
-    class AlbumEdit
+    public class AlbumEdit
     {
         public int Id { get; set; }
         public string Title { get; set; }
