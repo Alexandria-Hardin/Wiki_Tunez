@@ -3,7 +3,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
-using Wiki_Tunez.WebAPI.Data;
+using Wiki_Tunez.Data;
 using Wiki_Tunez.WebAPI.Models;
 
 namespace Wiki_Tunez.WebAPI
