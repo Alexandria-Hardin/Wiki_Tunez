@@ -22,10 +22,5 @@ namespace Wiki_Tunez.Data
         public virtual Artist Artist { get; set; }
         public GenreType TypeOfGenre { get; set; }
         public virtual ICollection<Song> AlbumOfSongs { get; set; } 
-
-        public Album()
-        {
-            AlbumOfSongs = new HashSet<Song>();
-        }
     }
 }

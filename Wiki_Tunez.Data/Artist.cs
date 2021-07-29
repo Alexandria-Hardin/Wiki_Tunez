@@ -28,5 +28,7 @@ namespace Wiki_Tunez.Data
         public string Name { get; set; }
         [Required]
         public ArtistType TypeOfArtist { get; set; }
+
+        public virtual ICollection<Album> ListOfAlbums { get; set; }
     }
 }
