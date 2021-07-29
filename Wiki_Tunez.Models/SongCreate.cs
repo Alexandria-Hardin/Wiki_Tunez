@@ -16,6 +16,7 @@ namespace Wiki_Tunez.Models
 
         public int ArtistId { get; set; }
 
+        public int AlbumId { get; set; }
         public GenreType TypeOfGenre { get; set; }
 
     }
