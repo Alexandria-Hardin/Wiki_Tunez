@@ -45,6 +45,11 @@ namespace Wiki_Tunez.Data
 
     public class Song
     {
+        public Song()
+        {
+            ListOfPlaylists = new HashSet<Playlist>();
+        }
+
         [Key]
         public int SongId { get; set; }
 
@@ -57,14 +62,13 @@ namespace Wiki_Tunez.Data
         public int Id { get; set; }
         public virtual Artist Artist { get; set; }
 
-        //public virtual ICollection<Artist> ListOfArtists { get; set; }
-
-        //public Song()
-        //{
-        //    ListOfArtists = new HashSet<Artist>();
-        //}
+        [ForeignKey(nameof(Album))]
+        public int AlbumId { get; set; }
+        public virtual Album Album { get; set; }
 
         public GenreType TypeOfGenre { get; set; }
+
+        public virtual ICollection<Playlist> ListOfPlaylists { get; set; }
 
     }
 }

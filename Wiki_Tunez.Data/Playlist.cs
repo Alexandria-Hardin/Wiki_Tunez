@@ -17,9 +17,9 @@ namespace Wiki_Tunez.Data
         [Required]
         public Guid UserId { get; set; }
 
-        [ForeignKey(nameof(Song))]
-        public int SongId { get; set; }
-        public virtual Song Song { get; set; }
+        //[ForeignKey(nameof(Song))]
+        //public int SongId { get; set; }
+        //public virtual Song Song { get; set; }
 
         public virtual ICollection<Song> ListOfSongs { get; set; }
 
