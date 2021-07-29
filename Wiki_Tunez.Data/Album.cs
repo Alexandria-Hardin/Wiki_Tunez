@@ -11,11 +11,11 @@ namespace Wiki_Tunez.Data
     public class Album
     {
         [Key] 
-        public int Id { get; set; }
+        public int AlbumId { get; set; } 
         [Required]
         public string Title { get; set; }
         [Required]
-        public int AmountOfSongs { get; set; }
+        public int AmountOfSongs { get; set; } 
 
         [ForeignKey(nameof(Artist))]
         public int ArtistId { get; set; }

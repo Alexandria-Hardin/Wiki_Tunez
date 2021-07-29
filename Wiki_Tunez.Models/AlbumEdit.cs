@@ -9,7 +9,7 @@ namespace Wiki_Tunez.Models
 {
     public class AlbumEdit
     {
-        public int Id { get; set; }
+        public int AlbumId { get; set; }
         public string Title { get; set; }
         public int AmountOfSongs { get; set; }
         public int ArtistId { get; set; }

@@ -39,7 +39,7 @@ namespace Wiki_Tunez.Services
                         e =>
                         new AlbumListItem
                         {
-                            Id = e.Id,
+                            AlbumId = e.AlbumId,
                             Title = e.Title,
                             AlbumOfSongs = e.AlbumOfSongs
                         }
@@ -55,11 +55,11 @@ namespace Wiki_Tunez.Services
                 var entity =
                     ctx
                     .Albums
-                    .Single(e => e.Id == id);
+                    .Single(e => e.AlbumId == id);
                 return
                     new AlbumDetail
                     {
-                        Id = entity.Id,
+                        AlbumId = entity.AlbumId,
                         Title = entity.Title,
                         AmountOfSongs = entity.AmountOfSongs,
                         ArtistId = entity.ArtistId,
@@ -76,9 +76,9 @@ namespace Wiki_Tunez.Services
                 var entity =
                     ctx
                     .Albums
-                    .Single(e => e.Id == model.Id);
+                    .Single(e => e.AlbumId == model.AlbumId);
 
-                entity.Id = model.Id;
+                entity.AlbumId = model.AlbumId;
                 entity.Title = model.Title;
                 entity.AmountOfSongs = model.AmountOfSongs;
                 entity.ArtistId = model.ArtistId;
@@ -95,7 +95,7 @@ namespace Wiki_Tunez.Services
                 var entity =
                     ctx
                     .Albums
-                    .Single(e => e.Id == id);
+                    .Single(e => e.AlbumId == id);
                 ctx.Albums.Remove(entity);
                 return ctx.SaveChanges() == 1;
             }
