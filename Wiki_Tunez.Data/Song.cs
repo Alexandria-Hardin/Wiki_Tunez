@@ -58,10 +58,12 @@ namespace Wiki_Tunez.Data
 
         public double RunTime { get; set; }
 
+        [Required]
         [ForeignKey(nameof(Artist))]
         public int Id { get; set; }
         public virtual Artist Artist { get; set; }
 
+        [Required]
         [ForeignKey(nameof(Album))]
         public int AlbumId { get; set; }
         public virtual Album Album { get; set; }
