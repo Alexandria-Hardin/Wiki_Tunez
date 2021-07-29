@@ -23,8 +23,7 @@ namespace Wiki_Tunez.Services
                 {
                     UserId = _userId,
                     Name = model.Name,
-                        //SongId = model.SongId,
-                        ListOfSongs = model.ListOfSongs
+                    ListOfSongs = model.ListOfSongs
                 };
             using (var ctx = new ApplicationDbContext())
             {
@@ -67,8 +66,7 @@ namespace Wiki_Tunez.Services
                     {
                         Id = entity.Id,
                         Name = entity.Name,
-                            //SongId = entity.SongId,
-                            UserId = entity.UserId,
+                        UserId = entity.UserId,
                         ListOfSongs = entity.ListOfSongs
                     };
             }
@@ -87,8 +85,7 @@ namespace Wiki_Tunez.Services
                     {
                         Id = entity.Id,
                         Name = entity.Name,
-                            //SongId = entity.SongId,
-                            UserId = entity.UserId,
+                        UserId = entity.UserId,
                         ListOfSongs = entity.ListOfSongs
                     };
             }
@@ -103,7 +100,6 @@ namespace Wiki_Tunez.Services
                     .Playlists
                     .Single(e => e.Id == model.Id && e.UserId == _userId);
                 entity.Name = model.Name;
-                //entity.SongId = model.SongId;
                 entity.ListOfSongs = model.ListOfSongs;
 
                 return ctx.SaveChanges() == 1;
@@ -121,6 +117,27 @@ namespace Wiki_Tunez.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-        //add way to delete and add songs already inside the playlist
+
+        public void AddSongToPlaylist(int SongId, int PlaylistId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var foundSong = ctx.Songs.Single(s => s.SongId == SongId);
+                var foundPlaylist = ctx.Playlists.Single(p => p.Id == PlaylistId);
+                foundPlaylist.ListOfSongs.Add(foundSong);
+                var testing = ctx.SaveChanges();
+            }
+        }
+
+        public void DeleteSongFromPlaylist(int SongId, int PlaylistId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var foundSong = ctx.Songs.Single(s => s.SongId == SongId);
+                var foundPlaylist = ctx.Playlists.Single(p => p.Id == PlaylistId);
+                foundPlaylist.ListOfSongs.Remove(foundSong);
+                var testing = ctx.SaveChanges();
+            }
+        }
     }
 }
