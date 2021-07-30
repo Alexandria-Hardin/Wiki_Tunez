@@ -45,8 +45,8 @@ namespace Wiki_Tunez.WebAPI.Controllers
         private PlaylistService CreatePlaylistService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var noteService = new PlaylistService(userId);
-            return noteService;
+            var playlistService = new PlaylistService(userId);
+            return playlistService;
         }
 
         public IHttpActionResult Put(PlaylistEdit playlist)

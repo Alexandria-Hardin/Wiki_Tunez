@@ -118,26 +118,26 @@ namespace Wiki_Tunez.Services
             }
         }
 
-        public void AddSongToPlaylist(int SongId, int PlaylistId)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var foundSong = ctx.Songs.Single(s => s.SongId == SongId);
-                var foundPlaylist = ctx.Playlists.Single(p => p.Id == PlaylistId);
-                foundPlaylist.ListOfSongs.Add(foundSong);
-                var testing = ctx.SaveChanges();
-            }
-        }
+        //public void AddSongToPlaylist(int SongId, int PlaylistId)
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var foundSong = ctx.Songs.Single(s => s.SongId == SongId);
+        //        var foundPlaylist = ctx.Playlists.Single(p => p.Id == PlaylistId);
+        //        foundPlaylist.ListOfSongs.Add(foundSong);
+        //        var testing = ctx.SaveChanges();
+        //    }
+        //}
 
-        public void DeleteSongFromPlaylist(int SongId, int PlaylistId)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var foundSong = ctx.Songs.Single(s => s.SongId == SongId);
-                var foundPlaylist = ctx.Playlists.Single(p => p.Id == PlaylistId);
-                foundPlaylist.ListOfSongs.Remove(foundSong);
-                var testing = ctx.SaveChanges();
-            }
-        }
+        //public void DeleteSongFromPlaylist(int SongId, int PlaylistId)
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var foundSong = ctx.Songs.Single(s => s.SongId == SongId);
+        //        var foundPlaylist = ctx.Playlists.Single(p => p.Id == PlaylistId);
+        //        foundPlaylist.ListOfSongs.Remove(foundSong);
+        //        var testing = ctx.SaveChanges();
+        //    }
+        //}
     }
 }
