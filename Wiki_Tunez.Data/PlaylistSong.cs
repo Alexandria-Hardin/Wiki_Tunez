@@ -11,6 +11,7 @@ namespace Wiki_Tunez.Data
     public class PlaylistSong
     {
         [Key, Column(Order = 0)]
+        [ForeignKey(nameof(Playlist))]
         public int PlaylistId { get; set; }
         public virtual Playlist Playlist { get; set; }
 
