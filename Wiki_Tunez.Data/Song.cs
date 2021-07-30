@@ -63,9 +63,8 @@ namespace Wiki_Tunez.Data
         public int Id { get; set; }
         public virtual Artist Artist { get; set; }
 
-        [Required]
         [ForeignKey(nameof(Album))]
-        public int AlbumId { get; set; }
+        public int? AlbumId { get; set; }
         public virtual Album Album { get; set; }
 
         public GenreType TypeOfGenre { get; set; }
