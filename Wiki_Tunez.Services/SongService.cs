@@ -19,7 +19,7 @@ namespace Wiki_Tunez.Services
                     RunTime = model.RunTime,
                     Id = model.ArtistId,
                     AlbumId = model.AlbumId,
-                    TypeOfGenre = model.TypeOfGenre,
+                    TypeOfGenre = model.TypeOfGenre
 
                 };
             using (var ctx = new ApplicationDbContext())
