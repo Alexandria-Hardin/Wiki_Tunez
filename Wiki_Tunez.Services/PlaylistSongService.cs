@@ -25,13 +25,14 @@ namespace Wiki_Tunez.Services
             }
         }
 
-        public void DeleteSongFromPlaylist(int SongId, int PlaylistId)
+        public bool DeleteSongFromPlaylist(int playlistId, int songId)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var foundSong = ctx.PlaylistSongs.Single(s => s.SongId == SongId && s.PlaylistId == PlaylistId);
+                var foundSong = ctx.PlaylistSongs.Single(s => s.SongId == songId && s.PlaylistId == playlistId);
+
                 ctx.PlaylistSongs.Remove(foundSong);
-                var testing = ctx.SaveChanges();
+                return ctx.SaveChanges() == 1;
             }
         }
     }
