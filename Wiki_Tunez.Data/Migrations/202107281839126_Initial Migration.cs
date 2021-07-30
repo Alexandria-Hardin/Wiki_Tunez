@@ -34,7 +34,7 @@ namespace Wiki_Tunez.Data.Migrations
                     })
                 .PrimaryKey(t => t.SongId)
                 .ForeignKey("dbo.Artist", t => t.Id, cascadeDelete: true)
-                .ForeignKey("dbo.Album", t => t.Id, cascadeDelete: true)
+                .ForeignKey("dbo.Album", t => t.Id, cascadeDelete: false)
                 .ForeignKey("dbo.Playlist", t => t.Playlist_Id)
                 .Index(t => t.Id)
                 .Index(t => t.Playlist_Id);
