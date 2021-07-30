@@ -36,6 +36,8 @@ namespace Wiki_Tunez.Data
         public DbSet<Artist> Artists { get; set; }
         public DbSet<Playlist> Playlists { get; set; }
         public DbSet<Album> Albums { get; set; }
+        public DbSet<PlaylistSong> PlaylistSongs { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder
