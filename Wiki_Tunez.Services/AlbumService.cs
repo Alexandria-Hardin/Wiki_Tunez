@@ -96,7 +96,6 @@ namespace Wiki_Tunez.Services
                 entity.AmountOfSongs = model.AmountOfSongs;
                 entity.ArtistId = model.ArtistId;
                 entity.TypeOfGenre = model.TypeOfGenre;
-                entity.AlbumOfSongs = model.AlbumOfSongs;
 
                 return ctx.SaveChanges() == 1;
             }

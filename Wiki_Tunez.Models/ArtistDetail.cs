@@ -14,6 +14,8 @@ namespace Wiki_Tunez.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public ArtistType TypeOfArtist { get; set; }
+        public virtual ICollection<AlbumListItem> ListOfAlbums { get; set; } 
+        public virtual ICollection<SongListItem> SongsByArtist { get; set; } 
 
     }
 }
