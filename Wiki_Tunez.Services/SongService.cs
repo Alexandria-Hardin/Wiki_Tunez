@@ -17,7 +17,7 @@ namespace Wiki_Tunez.Services
                 {                   
                     Title = model.Title,
                     RunTime = model.RunTime,
-                    Id = model.ArtistId,
+                    Id = model.Id,
                     AlbumId = model.AlbumId,
                     TypeOfGenre = model.TypeOfGenre
 
@@ -67,7 +67,7 @@ namespace Wiki_Tunez.Services
                         SongId = entity.SongId,
                         Title = entity.Title,
                         RunTime = entity.RunTime,
-                        ArtistId = entity.Id,
+                        Id = entity.Id,
                         AlbumId = (int)entity.AlbumId,
                         TypeOfGenre = entity.TypeOfGenre
                     };
@@ -88,7 +88,7 @@ namespace Wiki_Tunez.Services
                         SongId = entity.SongId,
                         Title = entity.Title,
                         RunTime = entity.RunTime,
-                        ArtistId = entity.Id,
+                        Id = entity.Id,
                         AlbumId = (int)entity.AlbumId,
                         TypeOfGenre = entity.TypeOfGenre
                     };
