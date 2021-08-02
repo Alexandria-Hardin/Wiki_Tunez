@@ -26,12 +26,12 @@ namespace Wiki_Tunez.WebAPI.Controllers
             var playlist = playlistService.GetPlaylistById(id);
             return Ok(playlist);
         }
-        //public IHttpActionResult Get(Guid Id)
-        //{
-        //    PlaylistService playlistService = CreatePlaylistService();
-        //    var playlist = playlistService.GetPlaylistByGuid(Id);
-        //    return Ok(playlist);
-        //}
+        public IHttpActionResult Get(Guid Id)
+        {
+            PlaylistService playlistService = CreatePlaylistService();
+            var playlist = playlistService.GetPlaylistByGuid(Id);
+            return Ok(playlist);
+        }
 
         public IHttpActionResult Post(PlaylistCreate playlist)
         {

@@ -60,20 +60,20 @@ namespace Wiki_Tunez.Services
                     ctx
                     .Playlists
                     .Single(e => e.Id == id && e.UserId == _userId);
-                    List<SongListItem> listOfSongs = new List<SongListItem>();
-                    foreach (var song in entity.ListOfSongs)
+                List<SongListItem> listOfSongs = new List<SongListItem>();
+                foreach (var song in entity.ListOfSongs)
+                {
+                    var name = new SongListItem()
                     {
-                    var name = new SongListItem()                
-                        {
-                            SongId = song.SongId,
-                            Title = song.Song.Title,
-                            RunTime = song.Song.RunTime,
-                            Id = song.Song.Id,
-                            AlbumId = (int)song.Song.AlbumId,
-                            TypeOfGenre =song.Song.TypeOfGenre
-                        };
-                        listOfSongs.Add(name);
-                    }
+                        SongId = song.SongId,
+                        Title = song.Song.Title,
+                        RunTime = song.Song.RunTime,
+                        Id = song.Song.Id,
+                        AlbumId = (int)song.Song.AlbumId,
+                        TypeOfGenre = song.Song.TypeOfGenre
+                    };
+                    listOfSongs.Add(name);
+                }
                 return
                     new PlaylistDetail
                     {
@@ -85,71 +85,88 @@ namespace Wiki_Tunez.Services
             }
         }
 
-        //public PlaylistDetail GetPlaylistByGuid(Guid UserId)
-        //{
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        var entity =
-        //            ctx
-        //            .Playlists
-        //            .Single(e => e.UserId == _userId);
-        //        return
-        //            new PlaylistDetail
-        //            {
-        //                Id = entity.Id,
-        //                Name = entity.Name,
-        //                UserId = entity.UserId,
-        //                ListOfSongs = entity.ListOfSongs
-        //            };
-        //    }
-        //}
-
-        public bool UpdatePlaylist(PlaylistEdit model)
+        public PlaylistDetail GetPlaylistByGuid(Guid UserId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                     .Playlists
-                    .Single(e => e.Id == model.Id && e.UserId == _userId);
-                entity.Name = model.Name;
+                    .Single(e => e.UserId == _userId);
+                List<SongListItem> listOfSongs = new List<SongListItem>();
+                foreach (var song in entity.ListOfSongs)
+                {
+                    var name = new SongListItem()
+                    {
+                        SongId = song.SongId,
+                        Title = song.Song.Title,
+                        RunTime = song.Song.RunTime,
+                        Id = song.Song.Id,
+                        AlbumId = (int)song.Song.AlbumId,
+                        TypeOfGenre = song.Song.TypeOfGenre
+                    };
+                    listOfSongs.Add(name);
+                }
 
-                return ctx.SaveChanges() == 1;
+                    return
+                    new PlaylistDetail
+                    {
+                        Id = entity.Id,
+                        Name = entity.Name,
+                        UserId = entity.UserId,
+                        ListOfSongs = listOfSongs
+                    };
+                }
             }
-        }
-        public bool DeletePlaylist(int Id)
-        {
-            using (var ctx = new ApplicationDbContext())
+        
+
+            public bool UpdatePlaylist(PlaylistEdit model)
             {
-                var entity =
-                    ctx
-                    .Playlists
-                    .Single(e => e.Id == Id && e.UserId == _userId);
-                ctx.Playlists.Remove(entity);
-                return ctx.SaveChanges() == 1;
+                using (var ctx = new ApplicationDbContext())
+                {
+                    var entity =
+                        ctx
+                        .Playlists
+                        .Single(e => e.Id == model.Id && e.UserId == _userId);
+                    entity.Name = model.Name;
+
+                    return ctx.SaveChanges() == 1;
+                }
             }
+            public bool DeletePlaylist(int Id)
+            {
+                using (var ctx = new ApplicationDbContext())
+                {
+                    var entity =
+                        ctx
+                        .Playlists
+                        .Single(e => e.Id == Id && e.UserId == _userId);
+                    ctx.Playlists.Remove(entity);
+                    return ctx.SaveChanges() == 1;
+                }
+            }
+
+            //public void AddSongToPlaylist(int SongId, int PlaylistId)
+            //{
+            //    using (var ctx = new ApplicationDbContext())
+            //    {
+            //        var foundSong = ctx.Songs.Single(s => s.SongId == SongId);
+            //        var foundPlaylist = ctx.Playlists.Single(p => p.Id == PlaylistId);
+            //        foundPlaylist.ListOfSongs.Add(foundSong);
+            //        var testing = ctx.SaveChanges();
+            //    }
+            //}
+
+            //public void DeleteSongFromPlaylist(int SongId, int PlaylistId)
+            //{
+            //    using (var ctx = new ApplicationDbContext())
+            //    {
+            //        var foundSong = ctx.Songs.Single(s => s.SongId == SongId);
+            //        var foundPlaylist = ctx.Playlists.Single(p => p.Id == PlaylistId);
+            //        foundPlaylist.ListOfSongs.Remove(foundSong);
+            //        var testing = ctx.SaveChanges();
+            //    }
+            //}
         }
-
-        //public void AddSongToPlaylist(int SongId, int PlaylistId)
-        //{
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        var foundSong = ctx.Songs.Single(s => s.SongId == SongId);
-        //        var foundPlaylist = ctx.Playlists.Single(p => p.Id == PlaylistId);
-        //        foundPlaylist.ListOfSongs.Add(foundSong);
-        //        var testing = ctx.SaveChanges();
-        //    }
-        //}
-
-        //public void DeleteSongFromPlaylist(int SongId, int PlaylistId)
-        //{
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        var foundSong = ctx.Songs.Single(s => s.SongId == SongId);
-        //        var foundPlaylist = ctx.Playlists.Single(p => p.Id == PlaylistId);
-        //        foundPlaylist.ListOfSongs.Remove(foundSong);
-        //        var testing = ctx.SaveChanges();
-        //    }
-        //}
     }
-}
+
