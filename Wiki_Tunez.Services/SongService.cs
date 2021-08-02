@@ -44,12 +44,33 @@ namespace Wiki_Tunez.Services
                                     SongId = e.SongId,
                                     Title = e.Title,
                                     RunTime = e.RunTime,
-                                    ArtistId = e.Id,
+                                    Id = e.Id,
                                     AlbumId = (int)e.AlbumId,
                                     TypeOfGenre = e.TypeOfGenre
                                 }
                          );
                 return query.ToArray();
+            }
+        }
+
+        public SongDetail GetSongByID(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Songs
+                        .Single(e => e.SongId == id);
+                return
+                    new SongDetail
+                    {
+                        SongId = entity.SongId,
+                        Title = entity.Title,
+                        RunTime = entity.RunTime,
+                        ArtistId = entity.Id,
+                        AlbumId = (int)entity.AlbumId,
+                        TypeOfGenre = entity.TypeOfGenre
+                    };
             }
         }
 

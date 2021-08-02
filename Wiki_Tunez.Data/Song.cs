@@ -45,10 +45,10 @@ namespace Wiki_Tunez.Data
 
     public class Song
     {
-        public Song()
-        {
-            ListOfPlaylists = new HashSet<Playlist>();
-        }
+        //public Song()
+        //{
+        //    ListOfPlaylists = new HashSet<PlaylistSong>();
+        //}
 
         [Key]
         public int SongId { get; set; }
@@ -69,7 +69,7 @@ namespace Wiki_Tunez.Data
 
         public GenreType TypeOfGenre { get; set; }
 
-        public virtual ICollection<Playlist> ListOfPlaylists { get; set; }
+        public virtual ICollection<PlaylistSong> ListOfPlaylists { get; set; } = new List<PlaylistSong>();
 
     }
 }

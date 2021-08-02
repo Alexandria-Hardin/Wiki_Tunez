@@ -41,7 +41,6 @@ namespace Wiki_Tunez.Services
                         {
                             AlbumId = e.AlbumId,
                             Title = e.Title,
-                            AlbumOfSongs = e.AlbumOfSongs
                         }
                         );
                 return query.ToArray();
@@ -56,6 +55,20 @@ namespace Wiki_Tunez.Services
                     ctx
                     .Albums
                     .Single(e => e.AlbumId == id);
+                    List<SongListItem> listOfSongs = new List<SongListItem>();
+                    foreach (var song in entity.AlbumOfSongs)
+                    {
+                        var name = new SongListItem()
+                        {
+                            SongId = song.SongId,
+                            Title = song.Title,
+                            RunTime = song.RunTime,
+                            Id = song.Id,
+                            AlbumId = (int)song.AlbumId,
+                            TypeOfGenre = song.TypeOfGenre
+                        };
+                        listOfSongs.Add(name);
+                    }
                 return
                     new AlbumDetail
                     {
@@ -64,7 +77,7 @@ namespace Wiki_Tunez.Services
                         AmountOfSongs = entity.AmountOfSongs,
                         ArtistId = entity.ArtistId,
                         TypeOfGenre = entity.TypeOfGenre,
-                        AlbumOfSongs = entity.AlbumOfSongs
+                        AlbumOfSongs = listOfSongs
                     };
             }
         }

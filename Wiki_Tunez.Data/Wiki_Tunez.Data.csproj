@@ -95,6 +95,10 @@
     <Compile Include="Migrations\202107301405185_adding junction table.Designer.cs">
       <DependentUpon>202107301405185_adding junction table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108021900090_Updating FK PlaylistSong types.cs" />
+    <Compile Include="Migrations\202108021900090_Updating FK PlaylistSong types.Designer.cs">
+      <DependentUpon>202108021900090_Updating FK PlaylistSong types.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Playlist.cs" />
     <Compile Include="PlaylistSong.cs" />
@@ -111,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107301405185_adding junction table.resx">
       <DependentUpon>202107301405185_adding junction table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108021900090_Updating FK PlaylistSong types.resx">
+      <DependentUpon>202108021900090_Updating FK PlaylistSong types.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -29,7 +29,7 @@ namespace Wiki_Tunez.Data
         [Required]
         public ArtistType TypeOfArtist { get; set; }
 
-        public virtual ICollection<Album> ListOfAlbums { get; set; }
-        public virtual ICollection<Song> SongsByArtist { get; set; }
+        public virtual ICollection<Album> ListOfAlbums { get; set; } = new List<Album>();
+        public virtual ICollection<Song> SongsByArtist { get; set; } = new List<Song>();
     }
 }
