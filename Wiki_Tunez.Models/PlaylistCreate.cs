@@ -10,6 +10,5 @@ namespace Wiki_Tunez.Models
     public class PlaylistCreate
     {
         public string Name { get; set; }
-        public virtual ICollection<Song> ListOfSongs { get; set; }
     }
 }

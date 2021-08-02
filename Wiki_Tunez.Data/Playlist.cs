@@ -17,11 +17,11 @@ namespace Wiki_Tunez.Data
         [Required]
         public Guid UserId { get; set; }
 
-        public virtual ICollection<Song> ListOfSongs { get; set; }
+        public virtual ICollection<PlaylistSong> ListOfSongs { get; set; }
 
         public Playlist()
         {
-            ListOfSongs = new HashSet<Song>();
+            ListOfSongs = new HashSet<PlaylistSong>();
         }
     }
 }

@@ -22,8 +22,7 @@ namespace Wiki_Tunez.Services
                 new Playlist()
                 {
                     UserId = _userId,
-                    Name = model.Name,
-                    ListOfSongs = model.ListOfSongs
+                    Name = model.Name
                 };
             using (var ctx = new ApplicationDbContext())
             {
@@ -46,7 +45,7 @@ namespace Wiki_Tunez.Services
                         {
                             Id = e.Id,
                             Name = e.Name,
-                            ListOfSongs = e.ListOfSongs
+                            UserId = e.UserId
                         }
                         );
                 return query.ToArray();
@@ -61,35 +60,49 @@ namespace Wiki_Tunez.Services
                     ctx
                     .Playlists
                     .Single(e => e.Id == id && e.UserId == _userId);
+                    List<SongListItem> listOfSongs = new List<SongListItem>();
+                    foreach (var song in entity.ListOfSongs)
+                    {
+                    var name = new SongListItem()                
+                        {
+                            SongId = song.SongId,
+                            Title = song.Song.Title,
+                            RunTime = song.Song.RunTime,
+                            Id = song.Song.Id,
+                            AlbumId = (int)song.Song.AlbumId,
+                            TypeOfGenre =song.Song.TypeOfGenre
+                        };
+                        listOfSongs.Add(name);
+                    }
                 return
                     new PlaylistDetail
                     {
                         Id = entity.Id,
                         Name = entity.Name,
                         UserId = entity.UserId,
-                        ListOfSongs = entity.ListOfSongs
+                        ListOfSongs = listOfSongs
                     };
             }
         }
 
-        public PlaylistDetail GetPlaylistByGuid(Guid UserId)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var entity =
-                    ctx
-                    .Playlists
-                    .Single(e => e.UserId == _userId);
-                return
-                    new PlaylistDetail
-                    {
-                        Id = entity.Id,
-                        Name = entity.Name,
-                        UserId = entity.UserId,
-                        ListOfSongs = entity.ListOfSongs
-                    };
-            }
-        }
+        //public PlaylistDetail GetPlaylistByGuid(Guid UserId)
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var entity =
+        //            ctx
+        //            .Playlists
+        //            .Single(e => e.UserId == _userId);
+        //        return
+        //            new PlaylistDetail
+        //            {
+        //                Id = entity.Id,
+        //                Name = entity.Name,
+        //                UserId = entity.UserId,
+        //                ListOfSongs = entity.ListOfSongs
+        //            };
+        //    }
+        //}
 
         public bool UpdatePlaylist(PlaylistEdit model)
         {
@@ -100,7 +113,6 @@ namespace Wiki_Tunez.Services
                     .Playlists
                     .Single(e => e.Id == model.Id && e.UserId == _userId);
                 entity.Name = model.Name;
-                entity.ListOfSongs = model.ListOfSongs;
 
                 return ctx.SaveChanges() == 1;
             }

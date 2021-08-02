@@ -11,6 +11,5 @@ namespace Wiki_Tunez.Models
     {
         public int AlbumId { get; set; }
         public string Title { get; set; }
-        public virtual ICollection<Song> AlbumOfSongs { get; set; }
     }
 }

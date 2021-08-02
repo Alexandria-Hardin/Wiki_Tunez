@@ -44,7 +44,7 @@ namespace Wiki_Tunez.Services
                                     SongId = e.SongId,
                                     Title = e.Title,
                                     RunTime = e.RunTime,
-                                    ArtistId = e.Id,
+                                    Id = e.Id,
                                     AlbumId = (int)e.AlbumId,
                                     TypeOfGenre = e.TypeOfGenre
                                 }
