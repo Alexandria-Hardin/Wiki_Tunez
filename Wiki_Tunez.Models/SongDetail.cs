@@ -12,7 +12,7 @@ namespace Wiki_Tunez.Models
         public int SongId { get; set; }
         public string Title { get; set; }
         public double RunTime { get; set; }
-        public int ArtistId { get; set; }
+        public int Id { get; set; }
         public int AlbumId { get; set; }
 
         public GenreType TypeOfGenre { get; set; }
