@@ -14,6 +14,5 @@ namespace Wiki_Tunez.Models
         public int AmountOfSongs { get; set; }
         public int ArtistId { get; set; }
         public GenreType TypeOfGenre { get; set; }
-        public virtual ICollection<Song> AlbumOfSongs { get; set; }
     }
 }

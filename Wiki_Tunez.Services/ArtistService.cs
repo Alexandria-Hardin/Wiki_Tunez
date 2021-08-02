@@ -52,12 +52,38 @@ namespace Wiki_Tunez.Services
                     ctx
                     .Artists
                     .Single(e => e.Id == id);
-                return
+                List<SongListItem> listOfSongs = new List<SongListItem>();
+                foreach (var song in entity.SongsByArtist)
+                {
+                    var name = new SongListItem()
+                    {
+                        SongId = song.SongId,
+                        Title = song.Title,
+                        RunTime = song.RunTime,
+                        Id = song.Id,
+                        AlbumId = (int)song.AlbumId,
+                        TypeOfGenre = song.TypeOfGenre
+                    };
+                    listOfSongs.Add(name);
+                }
+                List<AlbumListItem> listOfAlbums = new List<AlbumListItem>();
+                foreach (var album in entity.ListOfAlbums)
+                {
+                    var name = new AlbumListItem()
+                    {
+                        AlbumId = album.AlbumId,
+                        Title = album.Title
+                    };
+                    listOfAlbums.Add(name);
+                }
+                    return
                     new ArtistDetail
                     {
                         Id = entity.Id,
                         Name = entity.Name,
-                        TypeOfArtist = entity.TypeOfArtist
+                        TypeOfArtist = entity.TypeOfArtist,
+                        SongsByArtist = listOfSongs,
+                        ListOfAlbums = listOfAlbums
                     };
             }
 
