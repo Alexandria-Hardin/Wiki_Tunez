@@ -53,6 +53,27 @@ namespace Wiki_Tunez.Services
             }
         }
 
+        public SongDetail GetSongByID(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Songs
+                        .Single(e => e.SongId == id);
+                return
+                    new SongDetail
+                    {
+                        SongId = entity.SongId,
+                        Title = entity.Title,
+                        RunTime = entity.RunTime,
+                        ArtistId = entity.Id,
+                        AlbumId = (int)entity.AlbumId,
+                        TypeOfGenre = entity.TypeOfGenre
+                    };
+            }
+        }
+
         public SongDetail GetSongByName(string name)
         {
             using (var ctx = new ApplicationDbContext())
