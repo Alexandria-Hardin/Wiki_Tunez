@@ -36,17 +36,14 @@ namespace Wiki_Tunez.Services
                 var query =
                     ctx
                         .Songs
-                        //.Where(e => e.Id == eArtistId)
                         .Select(
                              e =>
                                 new SongListItem
                                 {
                                     SongId = e.SongId,
                                     Title = e.Title,
-                                    RunTime = e.RunTime,
                                     Id = e.Id,
-                                    AlbumId = (int)e.AlbumId,
-                                    TypeOfGenre = e.TypeOfGenre
+                                    AlbumId = (int)e.AlbumId
                                 }
                          );
                 return query.ToArray();
@@ -74,24 +71,44 @@ namespace Wiki_Tunez.Services
             }
         }
 
-        public SongDetail GetSongByName(string name)
+        public SongDetail GetSongByName(string title)
         {
+            //using (var ctx = new ApplicationDbContext())
+            //{
+            //    var query =
+            //        ctx
+            //            .Songs
+            //            .Where(e => e.Title == name)
+            //            .Select(
+            //                 e =>
+            //                    new SongDetail
+            //                    {
+            //                        SongId = e.SongId,
+            //                        Title = e.Title,
+            //                        RunTime = e.RunTime,
+            //                        Id = e.Id,
+            //                        AlbumId = (int)e.AlbumId,
+            //                        TypeOfGenre = e.TypeOfGenre
+            //                    }
+            //             );
+            //    return query.ToArray();
+            //}
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .Songs
-                        .Single(e => e.Title == name);
-                return
-                    new SongDetail
-                    {
-                        SongId = entity.SongId,
-                        Title = entity.Title,
-                        RunTime = entity.RunTime,
-                        Id = entity.Id,
-                        AlbumId = (int)entity.AlbumId,
-                        TypeOfGenre = entity.TypeOfGenre
-                    };
+                        .Single(e => e.Title == title);
+                    return
+                        new SongDetail
+                        {
+                            SongId = entity.SongId,
+                            Title = entity.Title,
+                            RunTime = entity.RunTime,
+                            Id = entity.Id,
+                            AlbumId = (int)entity.AlbumId,
+                            TypeOfGenre = entity.TypeOfGenre
+                        };     
             }
         }
 
