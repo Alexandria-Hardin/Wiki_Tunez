@@ -7,7 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 
-namespace Wiki_Tunez.WebAPI.Data
+namespace Wiki_Tunez.Data
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
@@ -35,6 +35,9 @@ namespace Wiki_Tunez.WebAPI.Data
         public DbSet<Song> Songs { get; set; }
         public DbSet<Artist> Artists { get; set; }
         public DbSet<Playlist> Playlists { get; set; }
+        public DbSet<Album> Albums { get; set; }
+        public DbSet<PlaylistSong> PlaylistSongs { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder

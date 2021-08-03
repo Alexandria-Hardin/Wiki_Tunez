@@ -10,7 +10,7 @@ using Microsoft.Owin.Security.OAuth;
 using Owin;
 using Wiki_Tunez.WebAPI.Providers;
 using Wiki_Tunez.WebAPI.Models;
-using Wiki_Tunez.WebAPI.Data;
+using Wiki_Tunez.Data;
 
 namespace Wiki_Tunez.WebAPI
 {
