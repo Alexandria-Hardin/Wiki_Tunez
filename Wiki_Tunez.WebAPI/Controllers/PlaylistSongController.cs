@@ -11,6 +11,9 @@ namespace Wiki_Tunez.WebAPI.Controllers
 {
     public class PlaylistSongController : ApiController
     {
+        /// <summary>
+        /// Add Song To Playlist
+        /// </summary>
         public IHttpActionResult Post(PlaylistSongCreate playlistSong)
         {
             if (!ModelState.IsValid)
@@ -21,6 +24,9 @@ namespace Wiki_Tunez.WebAPI.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Delete Song From Playlist
+        /// </summary>
         public IHttpActionResult Delete(int playlistId, int songId) 
         {
             var service = CreatePlaylistSongService();

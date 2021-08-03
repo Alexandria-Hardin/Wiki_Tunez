@@ -11,12 +11,10 @@ namespace Wiki_Tunez.WebAPI.Controllers
 {
     public class ArtistController : ApiController
     {
-        private ArtistService CreateArtistService()
-        {
-            var artistService = new ArtistService();
-            return artistService;
-        }
 
+        /// <summary>
+        /// Get All Artists
+        /// </summary>
         public IHttpActionResult Get()
         {
             ArtistService artistService = CreateArtistService();
@@ -24,6 +22,9 @@ namespace Wiki_Tunez.WebAPI.Controllers
             return Ok(artists);
         }
 
+        /// <summary>
+        /// Get Artist By Id
+        /// </summary>
         public IHttpActionResult Get(int id)
         {
             ArtistService artistService = CreateArtistService();
@@ -31,6 +32,9 @@ namespace Wiki_Tunez.WebAPI.Controllers
             return Ok(artists);
         }
 
+        /// <summary>
+        /// Create Artist
+        /// </summary>
         public IHttpActionResult Post(ArtistCreate artist)
         {
             if (!ModelState.IsValid)
@@ -44,6 +48,9 @@ namespace Wiki_Tunez.WebAPI.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Update Artist
+        /// </summary>
         public IHttpActionResult Put(ArtistEdit artist)
         {
             if (!ModelState.IsValid)
@@ -57,6 +64,9 @@ namespace Wiki_Tunez.WebAPI.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Delete Artist By Id
+        /// </summary>
         public IHttpActionResult Delete(int id)
         {
             var service = CreateArtistService();
@@ -65,6 +75,12 @@ namespace Wiki_Tunez.WebAPI.Controllers
                 return InternalServerError();
 
             return Ok();
+        }
+
+        private ArtistService CreateArtistService()
+        {
+            var artistService = new ArtistService();
+            return artistService;
         }
     }
 }
