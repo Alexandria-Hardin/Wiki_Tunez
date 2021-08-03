@@ -44,7 +44,7 @@ namespace Wiki_Tunez.Services
                                     SongId = e.SongId,
                                     Title = e.Title,
                                     Id = e.Id,
-                                    AlbumId = (int)e.AlbumId
+                                    AlbumName = e.Album.Title
                                 }
                          );
                 return query.ToArray();
@@ -66,7 +66,7 @@ namespace Wiki_Tunez.Services
                         Title = entity.Title,
                         RunTime = entity.RunTime,
                         Id = entity.Id,
-                        AlbumId = (int)entity.AlbumId,
+                        AlbumName = entity.Album.Title,
                         TypeOfGenre = entity.TypeOfGenre
                     };
             }
@@ -87,7 +87,7 @@ namespace Wiki_Tunez.Services
                             Title = entity.Title,
                             RunTime = entity.RunTime,
                             Id = entity.Id,
-                            AlbumId = (int)entity.AlbumId,
+                            AlbumName = entity.Album.Title,
                             TypeOfGenre = entity.TypeOfGenre
                         };     
             }
