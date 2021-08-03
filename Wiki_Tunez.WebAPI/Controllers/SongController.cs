@@ -20,6 +20,13 @@ namespace Wiki_Tunez.WebAPI.Controllers
             return Ok(songs);
         }
 
+        public IHttpActionResult Get(int id)
+        {
+            SongService songService = CreateSongService();
+            var song = songService.GetSongByID(id);
+            return Ok(song);
+        }
+
         public IHttpActionResult Get(string name)
         {
             SongService songService = CreateSongService();
