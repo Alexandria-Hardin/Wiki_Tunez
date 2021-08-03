@@ -67,10 +67,8 @@ namespace Wiki_Tunez.Services
                     {
                         SongId = song.SongId,
                         Title = song.Song.Title,
-                        RunTime = song.Song.RunTime,
                         Id = song.Song.Id,
-                        AlbumId = (int)song.Song.AlbumId,
-                        TypeOfGenre = song.Song.TypeOfGenre
+                        AlbumId = (int)song.Song.AlbumId
                     };
                     listOfSongs.Add(name);
                 }
@@ -128,9 +126,21 @@ namespace Wiki_Tunez.Services
                 var entity =
                     ctx
                     .Playlists
+                    .Single(e => e.UserId == _userId);
+                List<SongListItem> listOfSongs = new List<SongListItem>();
+                foreach (var song in entity.ListOfSongs)
+                {
+                    var name = new SongListItem()
+                    {
+                        SongId = song.SongId,
+                        Title = song.Song.Title,
+                        Id = song.Song.Id,
+                        AlbumId = (int)song.Song.AlbumId
+                    };
+                    listOfSongs.Add(name);
+                }
                     .Single(e => e.Id == model.Id && e.UserId == _userId);
                 entity.Name = model.Name;
-
                 return ctx.SaveChanges() == 1;
             }
         }
