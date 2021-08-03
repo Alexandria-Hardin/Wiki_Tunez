@@ -27,10 +27,10 @@ namespace Wiki_Tunez.WebAPI.Controllers
             return Ok(song);
         }
 
-        public IHttpActionResult Get(string name)
+        public IHttpActionResult Get(string title)
         {
             SongService songService = CreateSongService();
-            var song = songService.GetSongByName(name);
+            var song = songService.GetSongByTitle(title);
             return Ok(song);
         }
 

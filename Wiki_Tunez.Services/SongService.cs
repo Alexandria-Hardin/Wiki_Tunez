@@ -71,28 +71,8 @@ namespace Wiki_Tunez.Services
             }
         }
 
-        public SongDetail GetSongByName(string title)
+        public SongDetail GetSongByTitle(string title)
         {
-            //using (var ctx = new ApplicationDbContext())
-            //{
-            //    var query =
-            //        ctx
-            //            .Songs
-            //            .Where(e => e.Title == name)
-            //            .Select(
-            //                 e =>
-            //                    new SongDetail
-            //                    {
-            //                        SongId = e.SongId,
-            //                        Title = e.Title,
-            //                        RunTime = e.RunTime,
-            //                        Id = e.Id,
-            //                        AlbumId = (int)e.AlbumId,
-            //                        TypeOfGenre = e.TypeOfGenre
-            //                    }
-            //             );
-            //    return query.ToArray();
-            //}
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
