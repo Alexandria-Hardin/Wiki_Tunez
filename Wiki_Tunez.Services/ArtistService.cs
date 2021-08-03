@@ -59,10 +59,8 @@ namespace Wiki_Tunez.Services
                     {
                         SongId = song.SongId,
                         Title = song.Title,
-                        RunTime = song.RunTime,
                         Id = song.Id,
-                        AlbumId = (int)song.AlbumId,
-                        TypeOfGenre = song.TypeOfGenre
+                        AlbumId = (int)song.AlbumId
                     };
                     listOfSongs.Add(name);
                 }
