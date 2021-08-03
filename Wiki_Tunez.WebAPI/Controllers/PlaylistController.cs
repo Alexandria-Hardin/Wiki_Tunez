@@ -20,18 +20,19 @@ namespace Wiki_Tunez.WebAPI.Controllers
             return Ok(playlists);
         }
 
-        public IHttpActionResult Get(int id)
+        public IHttpActionResult Get(int Id)
         {
             PlaylistService playlistService = CreatePlaylistService();
-            var playlist = playlistService.GetPlaylistById(id);
+            var playlist = playlistService.GetPlaylistById(Id);
             return Ok(playlist);
         }
-        public IHttpActionResult Get(Guid Id)
-        {
-            PlaylistService playlistService = CreatePlaylistService();
-            var playlist = playlistService.GetPlaylistByGuid(Id);
-            return Ok(playlist);
-        }
+
+        //public IHttpActionResult Get(Guid UserId)
+        //{
+        //    PlaylistService playlistService = CreatePlaylistService();
+        //    var playlist = playlistService.GetPlaylistByGuid(UserId);
+        //    return Ok(playlist);
+        //}
 
         public IHttpActionResult Post(PlaylistCreate playlist)
         {
@@ -41,12 +42,6 @@ namespace Wiki_Tunez.WebAPI.Controllers
             if (!service.CreatePlaylist(playlist))
                 return InternalServerError();
             return Ok();
-        }
-        private PlaylistService CreatePlaylistService()
-        {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var playlistService = new PlaylistService(userId);
-            return playlistService;
         }
 
         public IHttpActionResult Put(PlaylistEdit playlist)
@@ -66,5 +61,12 @@ namespace Wiki_Tunez.WebAPI.Controllers
                 return InternalServerError();
             return Ok();
         }
+        private PlaylistService CreatePlaylistService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var playlistService = new PlaylistService(userId);
+            return playlistService;
+        }
     }
 }
+
