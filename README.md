@@ -1,8 +1,8 @@
-<h1 align="center">Wiki Tunez- Music App</h1>
+<h1 align="center">Wiki Tunez - Music App</h1>
 <h2 align="center">Hi 👋 Nick, Julie, and Alex here!</h2>
 <h3 align="center">Software development students</h3>
 
-- 🔭 We are currently working on our final Blue Badge project. We created an app called Wiki Tunez. It is a music app where you can search for artists, albums, and songs. As well as add those specifc songs into your own personal playlist. 
+- 🔭 We are currently working on our final Blue Badge project. We created an app called Wiki Tunez. It is a music app where you can search for artists, albums, and songs. As well as add those specific songs into your own personal playlist. 
 - Wiki Tunez is an n-tier api with mutliple classes, foreign keys, one to many relationships, a many to many relationship with a junction table, and endpoint descriptions. 
 - You can search for different songs by the name or artist, search for an artist and get a list of albums and songs done by them, and add and delete specific songs from your playlist.
 
