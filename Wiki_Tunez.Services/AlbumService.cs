@@ -63,7 +63,7 @@ namespace Wiki_Tunez.Services
                             SongId = song.SongId,
                             Title = song.Title,
                             Id = song.Id,
-                            AlbumId = (int)song.AlbumId
+                            AlbumName = song.Album.Title
                         };
                         listOfSongs.Add(name);
                     }
