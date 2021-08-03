@@ -13,6 +13,9 @@ namespace Wiki_Tunez.WebAPI.Controllers
     [Authorize]
     public class PlaylistController : ApiController
     {
+        /// <summary>
+        /// Get All Playlists
+        /// </summary>
         public IHttpActionResult Get()
         {
             PlaylistService playlistService = CreatePlaylistService();
@@ -20,6 +23,9 @@ namespace Wiki_Tunez.WebAPI.Controllers
             return Ok(playlists);
         }
 
+        /// <summary>
+        /// Get Playlist By Id
+        /// </summary>
         public IHttpActionResult Get(int Id)
         {
             PlaylistService playlistService = CreatePlaylistService();
@@ -34,6 +40,9 @@ namespace Wiki_Tunez.WebAPI.Controllers
         //    return Ok(playlist);
         //}
 
+        /// <summary>
+        /// Create Playlist
+        /// </summary>
         public IHttpActionResult Post(PlaylistCreate playlist)
         {
             if (!ModelState.IsValid)
@@ -44,6 +53,9 @@ namespace Wiki_Tunez.WebAPI.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Update Playlist
+        /// </summary>
         public IHttpActionResult Put(PlaylistEdit playlist)
         {
             if (!ModelState.IsValid)
@@ -54,6 +66,9 @@ namespace Wiki_Tunez.WebAPI.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Delete Playlist By Id
+        /// </summary>
         public IHttpActionResult Delete(int id)
         {
             var service = CreatePlaylistService();
