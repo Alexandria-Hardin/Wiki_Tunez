@@ -1,4 +1,4 @@
-﻿<h1 align="center">Wiki Tunez- Music App</h1>
+<h1 align="center">Wiki Tunez- Music App</h1>
 <h2 align="center">Hi 👋 Nick, Julie, and Alex here!</h2>
 <h3 align="center">Software development students</h3>
 
