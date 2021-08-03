@@ -32,7 +32,7 @@ namespace Wiki_Tunez.Services
                 var foundSong = ctx.PlaylistSongs.Single(s => s.SongId == songId && s.PlaylistId == playlistId);
 
                 ctx.PlaylistSongs.Remove(foundSong);
-                return ctx.SaveChanges() == 1;
+                return ctx.SaveChanges() == 1; 
             }
         }
     }

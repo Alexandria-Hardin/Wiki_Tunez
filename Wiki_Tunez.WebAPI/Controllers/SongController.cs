@@ -12,7 +12,9 @@ namespace Wiki_Tunez.WebAPI.Controllers
     [Authorize]
     public class SongController : ApiController
     {
-
+        /// <summary>
+        /// Get All Songs
+        /// </summary>
         public IHttpActionResult Get()
         {
             SongService songService = CreateSongService();
@@ -20,6 +22,9 @@ namespace Wiki_Tunez.WebAPI.Controllers
             return Ok(songs);
         }
 
+        /// <summary>
+        /// Get Song By Id
+        /// </summary>
         public IHttpActionResult Get(int id)
         {
             SongService songService = CreateSongService();
@@ -27,6 +32,9 @@ namespace Wiki_Tunez.WebAPI.Controllers
             return Ok(song);
         }
 
+        /// <summary>
+        /// Get Song By Title
+        /// </summary>
         public IHttpActionResult Get(string title)
         {
             SongService songService = CreateSongService();
@@ -34,6 +42,9 @@ namespace Wiki_Tunez.WebAPI.Controllers
             return Ok(song);
         }
 
+        /// <summary>
+        /// Create Song
+        /// </summary>
         public IHttpActionResult Post(SongCreate song)
         {
             if (!ModelState.IsValid)
@@ -47,6 +58,9 @@ namespace Wiki_Tunez.WebAPI.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Update Song
+        /// </summary>
         public IHttpActionResult Put(SongEdit song)
         {
             if (!ModelState.IsValid)
@@ -60,6 +74,9 @@ namespace Wiki_Tunez.WebAPI.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Delete Song By Id
+        /// </summary>
         public IHttpActionResult Delete(int id)
         {
             var service = CreateSongService();

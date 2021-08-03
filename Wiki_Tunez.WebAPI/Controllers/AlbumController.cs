@@ -12,12 +12,9 @@ namespace Wiki_Tunez.WebAPI.Controllers
     public class AlbumController : ApiController
     {
 
-        private AlbumService CreateAlbumService()
-        {
-            var albumService = new AlbumService();
-            return albumService;
-        }
-
+        /// <summary>
+        /// Get All Albums
+        /// </summary>
         public IHttpActionResult Get()
         {
             AlbumService albumService = CreateAlbumService();
@@ -25,6 +22,9 @@ namespace Wiki_Tunez.WebAPI.Controllers
             return Ok(albums);
         }
 
+        /// <summary>
+        /// Get Album By Id
+        /// </summary>
         public IHttpActionResult Get(int id)
         {
             AlbumService albumService = CreateAlbumService();
@@ -32,6 +32,9 @@ namespace Wiki_Tunez.WebAPI.Controllers
             return Ok(albums);
         }
 
+        /// <summary>
+        /// Create Album
+        /// </summary>
         public IHttpActionResult Post(AlbumCreate album)
         {
             if (!ModelState.IsValid)
@@ -45,6 +48,9 @@ namespace Wiki_Tunez.WebAPI.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Update Album
+        /// </summary>
         public IHttpActionResult Put(AlbumEdit album)
         {
             if (!ModelState.IsValid)
@@ -58,6 +64,9 @@ namespace Wiki_Tunez.WebAPI.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Delete Album by Id
+        /// </summary>
         public IHttpActionResult Delete(int id)
         {
             var service = CreateAlbumService();
@@ -66,6 +75,11 @@ namespace Wiki_Tunez.WebAPI.Controllers
                 return InternalServerError();
 
             return Ok();
+        }
+        private AlbumService CreateAlbumService()
+        {
+            var albumService = new AlbumService();
+            return albumService;
         }
     }
 }
