@@ -19,7 +19,6 @@ namespace Wiki_Tunez.Services
                     AmountOfSongs = model.AmountOfSongs,
                     ArtistId = model.ArtistId,
                     TypeOfGenre = model.TypeOfGenre,
-                    AlbumOfSongs = model.AlbumOfSongs
                 };
             using (var ctx = new ApplicationDbContext())
             {
@@ -63,7 +62,7 @@ namespace Wiki_Tunez.Services
                             SongId = song.SongId,
                             Title = song.Title,
                             Id = song.Id,
-                            AlbumName = song.Album.Title
+                            AlbumId = (int)song.AlbumId
                         };
                         listOfSongs.Add(name);
                     }
